@@ -1,0 +1,50 @@
+.lightbox {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .carousel__controls {
+    display: block;
+  }
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.75;
+    z-index: -1;
+  }
+}
+
+.lightbox__button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.lightbox__close-button {
+  cursor: pointer;
+  color: $color-white;
+  transition: $transition;
+
+  &:hover {
+    color: $color-orange;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .lightbox {
+    display: none;
+  }
+}

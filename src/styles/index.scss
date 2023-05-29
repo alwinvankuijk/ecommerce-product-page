@@ -1,0 +1,123 @@
+/* reset */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+* {
+  :before,
+  :after {
+    box-sizing: inherit;
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: $font-main;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: $color-black;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font-family: $font-main;
+}
+
+/* end reset */
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.wrapper--narrow {
+  max-width: 550px;
+  width: 100%;
+}
+
+.section-2-collumns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+
+.btn {
+  font-weight: 800;
+  background-color: $color-orange;
+  color: $color-white;
+  width: 100%;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: $transition;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: $color-lighter-orange;
+  }
+}
+
+.btn--glow {
+  position: relative;
+  -webkit-box-shadow: 10px 10px 35px -10px $color-orange;
+  -moz-box-shadow: 10px 10px 35px -10px $color-orange;
+  box-shadow: 10px 10px 35px -10px $color-orange;
+}
+
+@media screen and (max-width: 1250px) {
+  .section-2-collumns {
+    column-gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .section-2-collumns {
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section-2-collumns {
+    padding: 0;
+  }
+
+  .wrapper--noPaddingOnMobile {
+    padding: 0;
+  }
+}
