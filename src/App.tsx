@@ -4,6 +4,13 @@ import Lightbox from './components/ui/Lightbox';
 import useLightboxStore from './stores/lightboxStore';
 import ProductContent from './components/ui/ProductContent';
 import productOne from './assets/image-product-1.jpg';
+import productOneThumbnail from './assets/image-product-1-thumbnail.jpg';
+import productTwo from './assets/image-product-2.jpg';
+import productTwoThumbnail from './assets/image-product-2-thumbnail.jpg';
+import productThree from './assets/image-product-3.jpg';
+import productThreeThumbnail from './assets/image-product-3-thumbnail.jpg';
+import productFour from './assets/image-product-4.jpg';
+import productFourThumbnail from './assets/image-product-4-thumbnail.jpg';
 
 const products = [
   {
@@ -20,25 +27,25 @@ const products = [
         id: 1,
         altText: 'Product 1',
         path: productOne,
-        thumbnailPath: '/src/assets/image-product-1-thumbnail.jpg',
+        thumbnailPath: productOneThumbnail,
       },
       {
         id: 2,
         altText: 'Product 2',
-        path: '/src/assets/images/image-product-2.jpg',
-        thumbnailPath: '/src/assets/image-product-2-thumbnail.jpg',
+        path: productTwo,
+        thumbnailPath: productTwoThumbnail,
       },
       {
         id: 3,
         altText: 'Product 3',
-        path: '/src/assets/image-product-3.jpg',
-        thumbnailPath: '/src/assets/image-product-3-thumbnail.jpg',
+        path: productThree,
+        thumbnailPath: productThreeThumbnail,
       },
       {
         id: 4,
         altText: 'Product 4',
-        path: '/src/assets/image-product-4.jpg',
-        thumbnailPath: '/src/assets/image-product-4-thumbnail.jpg',
+        path: productFour,
+        thumbnailPath: productFourThumbnail,
       },
     ],
   },
