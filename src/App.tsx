@@ -14,7 +14,6 @@ import productFourThumbnail from './assets/image-product-4-thumbnail.jpg';
 import Cart from './components/ui/Cart';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import DeleteIconVector from './components/vectors/DeleteIconVector';
 
 const products = [
   {
