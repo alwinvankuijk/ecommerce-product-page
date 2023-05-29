@@ -3,13 +3,17 @@ import './Cart.scss';
 import { formatUSD } from '@/lib/utils';
 import MenuCloseVector from '@/components/vectors/MenuCloseVector';
 import { motion } from 'framer-motion';
+import DeleteIconVector from '@/components/vectors/DeleteIconVector';
 
 interface ICartProps {
   handleCloseCart: () => void;
 }
 
 function Cart({ handleCloseCart }: ICartProps) {
-  const cartItems = useCartStore((state) => state.items);
+  const [cartItems, removeItemsById] = useCartStore((state) => [
+    state.items,
+    state.removeItemsById,
+  ]);
 
   return (
     <motion.div
@@ -47,6 +51,11 @@ function Cart({ handleCloseCart }: ICartProps) {
                         {formatUSD(item.currentPrice * cartItems.length)}
                       </span>
                     </span>
+                  </div>
+                  <div className="cart__item--remove">
+                    <button onClick={() => removeItemsById(item.id)}>
+                      <DeleteIconVector />
+                    </button>
                   </div>
                 </div>
               );

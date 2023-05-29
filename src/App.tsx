@@ -11,6 +11,10 @@ import productThree from './assets/image-product-3.jpg';
 import productThreeThumbnail from './assets/image-product-3-thumbnail.jpg';
 import productFour from './assets/image-product-4.jpg';
 import productFourThumbnail from './assets/image-product-4-thumbnail.jpg';
+import Cart from './components/ui/Cart';
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import DeleteIconVector from './components/vectors/DeleteIconVector';
 
 const products = [
   {
@@ -53,16 +57,38 @@ const products = [
 
 function App() {
   const isLightboxOpen = useLightboxStore((state) => state.isLightboxOpen);
+  const [cartOpen, setCartOpen] = useState(false);
+
+  const handleToggleCart = () => {
+    setCartOpen((state) => !state);
+  };
+
+  const handleCloseCart = () => {
+    setCartOpen(false);
+  };
+
+  const handleOpenCart = () => {
+    setCartOpen(true);
+  };
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        handleToggleCart={handleToggleCart}
+        handleCloseCart={handleCloseCart}
+      />
       <div className="wrapper wrapper--noPaddingOnMobile">
         <div className="section-2-collumns">
           <Carousel images={products[0].images} showControls={false} />
-          <ProductContent product={products[0]} />
+          <ProductContent
+            product={products[0]}
+            handleOpenCart={handleOpenCart}
+          />
         </div>
         {isLightboxOpen ? <Lightbox images={products[0].images} /> : null}
+        <AnimatePresence>
+          {cartOpen ? <Cart handleCloseCart={handleCloseCart} /> : null}
+        </AnimatePresence>
       </div>
     </>
   );

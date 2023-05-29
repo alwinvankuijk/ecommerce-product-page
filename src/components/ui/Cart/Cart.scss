@@ -69,6 +69,12 @@ $padding: 1.5rem;
     font-weight: 800;
     color: $color-black;
   }
+
+  &--remove {
+    button {
+      color: $color-dark-grayish-blue;
+    }
+  }
 }
 
 .cart__empty {

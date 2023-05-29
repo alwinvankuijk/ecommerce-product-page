@@ -2,19 +2,19 @@ import MinusIconVector from '@/components/vectors/MinusIconVector';
 import './ProductContent.scss';
 import PlusIconVector from '@/components/vectors/PlusIconVector';
 import CartIconVector from '@/components/vectors/CartIconVector';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useCartStore from '@/stores/cartStore';
 import Product from '@/types/product';
 import { formatUSD } from '@/lib/utils';
 
 interface IProductContentProps {
   product: Product;
+  handleOpenCart: () => void;
 }
 
-function ProductContent({ product }: IProductContentProps) {
+function ProductContent({ product, handleOpenCart }: IProductContentProps) {
   const [quantity, setQuantity] = useState('1');
   const addItem = useCartStore((state) => state.addItem);
-  const items = useCartStore((state) => state.items);
 
   const validateInput = (e: React.FocusEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -24,9 +24,10 @@ function ProductContent({ product }: IProductContentProps) {
     }
   };
 
-  useEffect(() => {
-    console.log(items);
-  }, [items]);
+  const handleAddItem = (product: Product, quantity: number) => {
+    addItem(product, quantity);
+    handleOpenCart();
+  };
 
   return (
     <div className="product-content">
@@ -76,7 +77,7 @@ function ProductContent({ product }: IProductContentProps) {
         </div>
         <button
           className="btn btn--glow"
-          onClick={() => addItem(product, parseInt(quantity))}
+          onClick={() => handleAddItem(product, parseInt(quantity))}
         >
           <span>
             <CartIconVector />

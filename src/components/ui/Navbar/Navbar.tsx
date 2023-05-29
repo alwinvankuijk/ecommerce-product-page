@@ -7,25 +7,20 @@ import MenuCloseVector from '@/components/vectors/MenuCloseVector';
 import { useState } from 'react';
 import clsx from 'clsx';
 import useCartStore from '@/stores/cartStore';
-import Cart from '../Cart';
 import { AnimatePresence, motion } from 'framer-motion';
 
-function Navbar() {
+interface INavbarProps {
+  handleToggleCart: () => void;
+  handleCloseCart: () => void;
+}
+
+function Navbar({ handleToggleCart, handleCloseCart }: INavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
   const cartItems = useCartStore((state) => state.items);
 
   const handleOpenMenu = () => {
     setMenuOpen(true);
-    setCartOpen(false);
-  };
-
-  const handleToggleCart = () => {
-    setCartOpen((state) => !state);
-  };
-
-  const handleCloseCart = () => {
-    setCartOpen(false);
+    handleCloseCart();
   };
 
   return (
@@ -34,7 +29,7 @@ function Navbar() {
         {menuOpen ? (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 0.75 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="navbar__overlay"
@@ -96,9 +91,6 @@ function Navbar() {
                   ) : null}
                   <CartIconVector />
                 </button>
-                <AnimatePresence>
-                  {cartOpen ? <Cart handleCloseCart={handleCloseCart} /> : null}
-                </AnimatePresence>
               </div>
               <img
                 className="navbar__profile"
