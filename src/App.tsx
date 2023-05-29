@@ -3,6 +3,7 @@ import Carousel from './components/ui/Carousel';
 import Lightbox from './components/ui/Lightbox';
 import useLightboxStore from './stores/lightboxStore';
 import ProductContent from './components/ui/ProductContent';
+import productOne from './assets/image-product-1.jpg';
 
 const products = [
   {
@@ -18,7 +19,7 @@ const products = [
       {
         id: 1,
         altText: 'Product 1',
-        path: '/src/assets/image-product-1.jpg',
+        path: productOne,
         thumbnailPath: '/src/assets/image-product-1-thumbnail.jpg',
       },
       {
