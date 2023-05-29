@@ -1,7 +1,7 @@
 import LogoVector from '@/components/vectors/LogoVector';
 import './Navbar.scss';
 import CartIconVector from '@/components/vectors/CartIconVector';
-import avatar from '@/assets/images/image-avatar.png';
+import avatar from '@/assets/image-avatar.png';
 import MenuIconVector from '@/components/vectors/MenuIconVector';
 import MenuCloseVector from '@/components/vectors/MenuCloseVector';
 import { useState } from 'react';
